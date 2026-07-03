@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What's For Dinner</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="styling/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-white border-bottom px-4 py-3">
+    <div class="container-fluid px-0">
+    
+      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+        <span class="brand-icon d-flex align-items-center justify-content-center rounded-5 text-white">
+          <i class="fa-solid fa-utensils"></i>
+        </span>
+        <span>
+          <span class="d-block fw-bold fs-5 lh-3 text-dark">What's For Dinner</span>
+          <span class="d-block text-muted small">Your daily meal inspiration</span>
+        </span>
+      </a>
+  
+     
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto nav-mobile-list pt-3 pt-md-0 gap-3">
+          <li class="nav-item">
+            <button class="nav-link-btn" id="savedNavBtn">
+              <i class="fa-solid fa-bookmark"></i>
+              <span class="nav-text">Saved Recipes</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link-btn" id="recentNavBtn">
+              <i class="fa-solid fa-arrows-rotate"></i>
+              <span class="nav-text">Recent</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link-btn" id="settingsNavBtn">
+              <i class="fa-solid fa-gear"></i>
+              <span class="nav-text">Settings</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link-btn" id="profileNav">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" class="rounded-circle avatar-img" alt="Profile">
+              <span class="nav-text">Profile</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<main class="container py-4">
+
+
+  <section id="discoverView">
+    <div class="card recipe-card border-0 shadow-sm overflow-hidden" id="recipeCard">
+      <div class="row g-0">
+
+        <div class="col-lg-5 position-relative recipe-media">
+          <img id="recipeImg" src="" alt="" class="recipe-img">
+
+          <div class="rating-pill position-absolute d-flex align-items-center gap-2">
+            <span class="star"><i class="fa-solid fa-star"></i></span>
+            <span class="fw-bold" id="ratingNum">0.0</span>
+            <span class="text-muted small" id="ratingCount">(0 reviews)</span>
+          </div>
+
+       
+
+          <div class="stats-overlay position-absolute">
+            <div class="row text-center g-0">
+              <div class="col-4 stat-cell">
+                <div class="stat-ico"><i class="fa-solid fa-clock"></i></div>
+                <div class="stat-label">Prep Time</div>
+                <div class="stat-value" id="prepTime">–</div>
+              </div>
+              <div class="col-4 stat-cell">
+                <div class="stat-ico"><i class="fa-solid fa-fire-burner"></i></div>
+                <div class="stat-label">Cook Time</div>
+                <div class="stat-value" id="cookTime">–</div>
+              </div>
+              <div class="col-4 stat-cell">
+                <div class="stat-ico"><i class="fa-solid fa-users"></i></div>
+                <div class="stat-label">Servings</div>
+                <div class="stat-value" id="servings">–</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="col-lg-7">
+          <div class="card-body p-4 p-lg-5">
+
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div class="d-flex gap-2" id="tagRow"></div>
+              <div class="d-flex gap-2 flex-shrink-0">
+                  <button class="icon-btn-sq" id="likeBtn2" title="Save recipe"><i class="fa-solid fa-bookmark"></i></button>
+                <button class="icon-btn-sq" id="shareBtn2" title="Share recipe"><i class="fa-solid fa-share"></i></button>
+              </div>
+            </div>
+
+            <h1 class="recipe-title fw-bold mb-2" id="recipeTitle">Loading…</h1>
+            <p class="text-muted mb-4" id="recipeSub">—</p>
+
+           
+            <ul class="nav recipe-tabs mb-4" id="recipeTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ingredients" type="button">
+                  <span class="tab-ico"><i class="fa-solid fa-bars-staggered"></i></span> Ingredients
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-instructions" type="button">
+                  <span class="tab-ico"><i class="fa-solid fa-book-open"></i></span> Instructions
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-nutrition" type="button">
+                  <span class="tab-ico"><i class="fa-solid fa-chart-pie"></i></i></span> Nutrition
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-tips" type="button">
+                  <span class="tab-ico"><i class="fa-solid fa-lightbulb"></i></span> Chef's Tips
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="tab-ingredients">
+                <div class="ingredients-panel">
+                  <ol class="ingredient-list list-unstyled mb-0" id="ingredientList"></ol>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab-instructions">
+                <div class="ingredients-panel">
+                  <ol class="instruction-list list-unstyled mb-0" id="instructionList"></ol>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab-nutrition">
+                <div class="row g-2" id="nutritionGrid"></div>
+              </div>
+              <div class="tab-pane fade" id="tab-tips">
+                <div id="tipsList"></div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="btn btn-shuffle w-100 w-lg-auto" id="shuffleBtn">
+                <span class="me-2"><i class="fa-solid fa-shuffle"></i></span>Try Another Recipe
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
